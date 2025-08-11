@@ -1,0 +1,8 @@
+pyodbc
+json
+requests
+time
+pandas as pd
+os
+
+dotenv 
