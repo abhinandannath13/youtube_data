@@ -107,10 +107,10 @@ df = pd.read_csv("youtube_trending_videos.csv")
 
 
 # Azure SQL Database connection parameters
-server = os.getenv("AZURE_SQL_SERVER", "tcp:yourserver.database.windows.net")
-database = os.getenv("AZURE_SQL_DATABASE", "yourdbname")
-username = os.getenv("AZURE_SQL_USERNAME", "yourusername")
-password = os.getenv("AZURE_SQL_PASSWORD", "yourpassword")
+server = os.getenv("AZURE_SQL_SERVER")
+database = os.getenv("AZURE_SQL_DATABASE")
+username = os.getenv("AZURE_SQL_USERNAME")
+password = os.getenv("AZURE_SQL_PASSWORD")
 driver= '{ODBC Driver 17 for SQL Server}'
 
 # Connection string
