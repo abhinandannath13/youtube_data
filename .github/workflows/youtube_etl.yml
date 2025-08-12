@@ -27,6 +27,13 @@ jobs:
           sudo apt-get update
           sudo ACCEPT_EULA=Y apt-get install -y msodbcsql17 unixodbc-dev
 
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          auth-type: federated
+
       - name: Scrape YouTube Trending Data
         env:
           API_KEY: ${{ secrets.API_KEY }}
@@ -36,6 +43,4 @@ jobs:
         env:
           AZURE_SQL_SERVER: ${{ secrets.AZURE_SQL_SERVER }}
           AZURE_SQL_DATABASE: ${{ secrets.AZURE_SQL_DATABASE }}
-          AZURE_SQL_USERNAME: ${{ secrets.AZURE_SQL_USERNAME }}
-          AZURE_SQL_PASSWORD: ${{ secrets.AZURE_SQL_PASSWORD }}
         run: python data_insert.py
